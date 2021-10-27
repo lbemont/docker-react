@@ -1,0 +1,9 @@
+FROM node:alpine
+
+WORKDIR '/home/node/frontend'
+
+COPY --chown=node:node package.json .
+RUN npm install --unsafe-perm=true --allow-root
+COPY --chown=node:node . .
+
+CMD ["npm", "run", "start"] 
